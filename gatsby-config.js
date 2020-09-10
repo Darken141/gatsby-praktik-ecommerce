@@ -36,8 +36,30 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-snipcart',
       options: {
-        apiKey: process.env.SNIPCART_API_KEY
+        apiKey: process.env.SNIPCART_API_KEY,
+        autopop: true
       }
+    },
+    {
+      resolve: `gatsby-plugin-snipcart-advanced`,
+      options: {
+        version: '3.0.15',
+        publicApiKey: process.env.SNIPCART_API_KEY, // use public api key here or in environment variable
+        defaultLang: 'sk',
+        currency: 'eur',
+        openCartOnAdd: false,
+        locales: {
+          sk: {
+            actions: {
+              checkout: 'Objednať',
+            },
+          }
+        },
+        innerHTML: `
+            <billing section="bottom">
+                <!-- Customization goes here -->
+            </billing>`,
+      },
     },
     `gatsby-plugin-react-helmet`,
     {

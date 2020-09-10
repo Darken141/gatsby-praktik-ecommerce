@@ -53,7 +53,16 @@ const FeaturedProducts = () => {
                     <span>{parseFloat(price).toFixed(2)}€</span>
                   </div>
                   <div className={buttonContainer}>
-                    <CustomButton >Pridať do košíka</CustomButton>
+                    <button
+                      className="snipcart-add-item custom-button"
+                      data-item-id={slug}
+                      data-item-price={parseFloat(price).toFixed(2)}
+                      data-item-url={`/produkty/${slug}`}
+                      data-item-name={name}
+                    >
+                      Pridať do košíka
+                    </button>
+
                     <Link to={`/produkty/${slug}`}>Zistiť viac</Link>
                   </div>
                 </div>

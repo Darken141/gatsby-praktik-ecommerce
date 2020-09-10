@@ -29,7 +29,9 @@ const NavList = () => {
         ))
       }
       <li>
-        <MdShoppingCart />
+        <button className="snipcart-checkout">
+          <MdShoppingCart />
+        </button>
       </li>
     </ul>
   )
