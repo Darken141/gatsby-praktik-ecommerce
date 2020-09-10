@@ -1,0 +1,64 @@
+.blog-section {
+    position: relative;
+    padding-bottom: 25rem;
+
+    .post-wrapper {
+        padding: 5rem 0;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: "f s"
+                             "f t";
+
+        div {
+            position: relative;
+            transition: all 0.3s ease-in-out;
+            border-radius: 3px;
+
+            h4 {
+                background-color: rgba(#234579, 0.75);
+                // background-color: rgba(#000000, 0.75);
+                border-radius: 3px;
+                z-index: 99;
+                position: absolute;
+                text-transform: uppercase;
+                bottom: 0rem;
+                left: 0rem;
+                right: 0rem;
+                padding: 2rem 2rem 4rem;
+                color: #fff;
+                text-decoration: underline;
+            }
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        a:nth-child(1) {
+            grid-area: f;
+            margin-right: .5rem;
+        }
+
+        a:nth-child(2) {
+            grid-area: s;
+            margin-left: 1rem;
+        }
+
+        a:nth-child(3) {
+            grid-area: t;
+            margin-top: 0.7rem;
+            margin-left: 1rem;
+
+            // margin-bottom: rem;
+        }
+        
+    }
+
+    .wave-wrapper {
+        position: absolute;
+        left: 0;
+        bottom: -1rem;
+        width: 100%;
+    }
+}
