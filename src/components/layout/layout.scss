@@ -33,6 +33,11 @@
 
 html {
     font-size: 62.5%;
+    // filter: invert(100%);
+
+    // img, a {
+    //     filter: invert(100%);
+    // }
 }
 
 body {
@@ -81,7 +86,7 @@ a {
     letter-spacing: 0.8px;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--primary-color);
 
     &:hover {
