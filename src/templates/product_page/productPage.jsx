@@ -9,6 +9,7 @@ import { graphql } from 'gatsby'
 
 const ProductPage = ({ data }) => {
   const { product } = data
+  console.log(product)
 
   return (
     <Layout>
@@ -24,6 +25,21 @@ const ProductPage = ({ data }) => {
             <h1>{product.name}</h1>
             <span>{parseFloat(product.price).toFixed(2)}€</span>
             <ReactMarkdown source={product.description} />
+            <button
+              className="snipcart-add-item custom-button"
+              data-item-id={product.slug}
+              data-item-price={parseFloat(product.price).toFixed(2)}
+              data-item-url={`/produkty/${product.slug}`}
+              data-item-name={product.name}
+
+            // data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
+            // data-item-image="/assets/images/starry-night.jpg"
+            // data-item-name="The Starry Night"
+            // data-item-custom1-name="Frame color"
+            // data-item-custom1-options="Black|Brown|Gold">
+            >
+              Pridať do košíka
+            </button>
           </div>
         </div>
       </section>
@@ -34,6 +50,7 @@ const ProductPage = ({ data }) => {
 export const query = graphql`
   query GetSingleProduct($slug: String) {
   product: strapiProduct( slug: {eq: $slug}) {
+    slug
     name
     price
     description

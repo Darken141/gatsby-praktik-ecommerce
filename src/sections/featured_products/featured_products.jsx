@@ -59,6 +59,12 @@ const FeaturedProducts = () => {
                       data-item-price={parseFloat(price).toFixed(2)}
                       data-item-url={`/produkty/${slug}`}
                       data-item-name={name}
+
+                    // data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
+                    // data-item-image="/assets/images/starry-night.jpg"
+                    // data-item-name="The Starry Night"
+                    // data-item-custom1-name="Frame color"
+                    // data-item-custom1-options="Black|Brown|Gold">
                     >
                       Pridať do košíka
                     </button>
