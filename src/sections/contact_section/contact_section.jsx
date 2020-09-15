@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import Heading from '../../components/heading/heading'
-import { contactSectionStyles, contactFormContainer, formTextarea, waveWrapper, wave } from './contact_section.module.scss'
+import { infoStyles, contactSectionStyles, contactFormContainer, formTextarea, waveWrapper, wave } from './contact_section.module.scss'
 import CustomInput from '../../components/form_input/form_input'
 import CustomButton from '../../components/button/button'
 import Wave from '../../images/wave-3.svg'
+import { BsInfoCircle } from 'react-icons/bs'
 
 const ContactSection = () => {
     const [firstName, setFirstName] = useState('')
@@ -54,6 +55,8 @@ const ContactSection = () => {
                     </form>
                 </div>
             </div>
+
+            <BsInfoCircle className={infoStyles} />
 
             <div className={waveWrapper}>
                 <Wave className={wave} />
