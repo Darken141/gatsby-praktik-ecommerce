@@ -36,7 +36,7 @@ const FeaturedProducts = () => {
   `)
 
   return (
-    <section className={section}>
+    <section id='najnovsie-produkty' className={section}>
       <div className='container'>
         <Heading>
           Najnovšie produkty

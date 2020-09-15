@@ -39,7 +39,7 @@ const BlogSection = () => {
     `)
 
     return (
-        <section className={blogSection}>
+        <section id="blog" className={blogSection}>
             <div className='container'>
                 <Heading>Články ktoré by Vás mohli zaujímať</Heading>
 

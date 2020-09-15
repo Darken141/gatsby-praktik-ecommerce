@@ -67,7 +67,7 @@ const HeroSection = () => {
 
 
   return (
-    <section className={section + " container"}>
+    <section id='hero' className={section + " container"}>
       <div className={row}>
         <div className={col}>
           <h1>{heading}</h1>

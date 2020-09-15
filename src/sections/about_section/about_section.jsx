@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import Image from 'gatsby-image'
 
 const AboutSection = () => {
-    const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
       strapiAboutSection {
         content
@@ -32,23 +32,23 @@ const AboutSection = () => {
     }
   `)
 
-    // console.log()
+  // console.log()
 
-    return (
-        <section className={aboutSection}>
-            <div className='container'>
-                <Heading>Dovoľte Nám sa predstaviť</Heading>
-                <div className={row}>
-                    <div className={col}>
-                        <ReactMarkdown source={data.strapiAboutSection.content} />
-                    </div>
-                    <div className={col}>
-                        <Image fluid={data.strapiAboutSection.image.childImageSharp.fluid} />
-                    </div>
-                </div>
-            </div>
-        </section>
-    )
+  return (
+    <section id='o-nas' className={aboutSection}>
+      <div className='container'>
+        <Heading>Dovoľte Nám sa predstaviť</Heading>
+        <div className={row}>
+          <div className={col}>
+            <ReactMarkdown source={data.strapiAboutSection.content} />
+          </div>
+          <div className={col}>
+            <Image fluid={data.strapiAboutSection.image.childImageSharp.fluid} />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
 }
 
 export default AboutSection

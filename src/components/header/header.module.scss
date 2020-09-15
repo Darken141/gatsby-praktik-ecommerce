@@ -5,7 +5,7 @@
     height: var(--header-height);
     background-color: var(--header-bg-color);
     box-shadow: var(--header-bg-shadow);
-    
+
     .container {
         width: 100%;
         height: var(--header-height);
@@ -44,7 +44,7 @@
             
             li {
                 font-size: 1.8rem;
-                padding-left: 1.8rem;
+                margin-left: 1.8rem;
                 color: var(--primary-color);
 
                 a {
@@ -69,4 +69,41 @@
             border-radius: 0 0 0 1.5rem;
         }
     }
+
+
+    .menu-item {
+        cursor: pointer;
+        padding: 0.8rem 1.2rem;
+        border: none;
+        border-radius: 5px;
+        background-color: #F5FAFE;
+        color: var(--primary-color);
+        text-transform: uppercase;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: darken(#F5FAFE, 10);
+        }
+    }
+
+    .cart-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(243, 243, 122);
+        border-radius: 15px;
+        padding: .2rem 0.8rem;
+
+        .cart-button {
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 50%;
+            // background-color: #F5FAFE;
+            background-color: rgb(243, 243, 122);
+
+            color: var(--primary-color)
+        }
+    } 
 }

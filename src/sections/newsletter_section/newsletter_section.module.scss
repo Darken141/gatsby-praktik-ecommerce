@@ -1,0 +1,42 @@
+.news-letter-section-styles {
+    position: relative;
+    padding-bottom: 30rem;
+
+    .form-container {
+        max-width: 50rem;
+        background-color: var(--container-bg-color);
+        padding: 4rem 4rem 4rem;
+        border-radius: 15px;
+        margin: 8rem 0 0;
+
+        h4 {
+            text-transform: uppercase;
+            font-weight: 900;
+            font-size: 2.2rem;
+        }
+
+        p {
+
+            font-size: 1.8rem;
+        }
+        
+    }
+
+    .at {
+        cursor: default;
+        // display: block;
+        position: absolute;
+        font-size: 35rem;
+        right: 3rem;
+        bottom: 2rem;
+        color: var(--container-bg-color);
+    }
+
+    
+    .wave-wrapper {
+        position: absolute;
+        left: 0;
+        bottom: -1rem;
+        width: 100%;
+    }
+}

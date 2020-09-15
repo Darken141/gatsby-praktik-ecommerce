@@ -18,6 +18,7 @@ module.exports = {
       }
     },
     `gatsby-plugin-sass`,
+    `gatsby-plugin-smoothscroll`,
     {
       resolve: `gatsby-source-strapi`,
       options: {

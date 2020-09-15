@@ -1,0 +1,80 @@
+.contact-section-styles {
+    position: relative;
+    padding-bottom: 22rem;
+
+    .contact-form-container {
+        display: flex;
+        width: 100%;
+        flex-direction: row-reverse;
+        padding: 5rem 0 ;
+        
+        form {
+            width: 100%;
+            max-width: 60rem;
+            background-color: var(--container-bg-color);
+            padding: 0 4rem 4rem;
+            border-radius: 15px;
+        }
+    }
+}
+
+
+
+
+@mixin shrinkLabelStyles {
+    top: -14px;
+    font-size: 1.2rem;
+}
+
+.form-textarea {
+    position: relative;
+    margin: 45px 0;
+    input[type="password"] {
+        letter-spacing: 0.3em;
+    }
+
+            
+
+    label {
+        font-size: 16px;
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: 5px;
+        top: 10px;
+        transition: 300ms ease all;
+        &.shrink {
+            @include shrinkLabelStyles()
+        }
+    }
+    textarea {
+        resize: none;
+        font-family: inherit;
+        background-color: white;
+        font-size: 18px;
+        padding: 10px 10px 10px 5px;
+        display: block;
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        // margin: 25px 0;
+        margin: 0;
+        &:focus {
+            outline: none;
+        }
+        &:focus ~ label {
+            @include shrinkLabelStyles()
+
+        }
+    }
+    
+}
+
+
+.wave-wrapper {
+    position: absolute;
+    left: 0;
+    bottom: -1rem;
+    width: 100%;
+
+}

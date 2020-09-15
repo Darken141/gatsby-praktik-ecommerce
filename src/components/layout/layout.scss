@@ -70,8 +70,12 @@ a {
     color: var(--primary-color);
 }
 
-#snipcart > div > div > header {
-    margin-top: 8rem;
+// #snipcart > div > div > header {
+//     // margin-top: 8rem;
+// }
+
+#snipcart > div {
+    z-index: 9999999;
 }
 
 .custom-button {

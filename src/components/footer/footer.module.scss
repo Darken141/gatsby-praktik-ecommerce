@@ -4,5 +4,101 @@
     background-color: var(--footer-bg-color);
     color: var(--footer-font-color);
     padding: 3rem 2rem;
-    text-align: center;
+    // text-align: center;
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin-bottom: 3rem;
+
+        .col {
+            // min-width: 35rem;
+            margin: 0 1rem;
+
+            h4 {
+                text-transform: uppercase;
+                margin-bottom: .5rem;
+            }
+
+            div {
+                display: flex;
+                // align-items: center;
+            }
+
+            .opening-hours {
+                list-style: none;
+                margin-left: 2rem;
+                margin-bottom: 2rem;
+
+                li {
+                    opacity: .83;
+                    width: 100%;
+                    display: flex;
+                    // justify-content: space-between;
+
+                    :nth-child(1) {
+                        width: 4rem;
+                    }
+                    :nth-child(2) {
+                        margin-right: 4rem;
+                    }
+                }
+            }
+        }
+
+        .sitemap-styles {
+            list-style: none;
+            margin-left: 2rem;
+            margin-bottom: 2rem;
+            opacity: .83;
+
+
+            ul {
+            list-style: none;
+            margin-left: 2rem;
+            // margin-bottom: 2rem;
+            }
+            li {
+                cursor: pointer;
+
+                button {
+                    border: none;
+                    background-color: transparent;
+                    color: #fff;
+                }
+                a {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    span {
+        display: block;
+        text-align: center;
+        opacity: 0.05;
+        font-weight: 900;
+        font-size: 6rem;
+    }
+
+    .email-styles {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    .newsletter-input-styles {
+        flex-direction: column;
+
+        label {
+            opacity: .83;
+        }
+
+        input {
+            font-family: inherit;
+            padding: 0.8rem .5rem;
+            border: none;
+            margin-bottom: 1rem;
+        }
+    }
 }

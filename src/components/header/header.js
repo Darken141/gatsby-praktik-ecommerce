@@ -1,9 +1,10 @@
 import { Link } from "gatsby"
 import React from "react"
-import { header, container, logo } from './header.module.scss'
+import { header, container, logo, cartButton, menuItem, cartContainer } from './header.module.scss'
 import Logo from '../../images/praktik_logo.svg'
 import { MdShoppingCart } from 'react-icons/md'
-import { navItems } from '../../constants/nav_items'
+import { navItems, homePageNavItems } from '../../constants/nav_items'
+import scrollTo from 'gatsby-plugin-smoothscroll'
 
 const Header = () => (
   <header className={header}>
@@ -24,14 +25,16 @@ const NavList = () => {
   return (
     <ul>
       {
-        navItems.map(({ id, name, slug }) => (
+        homePageNavItems.map(({ id, name, slug }) => (
           <NavItem key={id} slug={slug}>{name}</NavItem>
         ))
       }
-      <li>
-        <button className="snipcart-checkout">
+      <li className={cartContainer}>
+        <button className={cartButton + " snipcart-checkout"}>
           <MdShoppingCart />
         </button>
+        {/* <span class="snipcart-items-count"></span> */}
+        <span className="snipcart-total-price"></span>
       </li>
     </ul>
   )
@@ -40,7 +43,8 @@ const NavList = () => {
 const NavItem = ({ children, slug }) => {
   return (
     <li>
-      <Link to={slug}>{children}</Link>
+      {/* <Link to={slug}>{children}</Link> */}
+      <button className={menuItem} onClick={() => scrollTo(slug)}>{children}</button>
     </li>
   )
 }

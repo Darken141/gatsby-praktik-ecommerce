@@ -1,0 +1,55 @@
+.testimonial-section-styles {
+    padding: 5rem 0;
+    background-color: var(--container-bg-color);
+
+    .testimonial-container {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 5rem 0 0;
+
+        .testimonial-card {
+            width: 30%;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .avatar {
+                background-color: #fff;
+                width: 12rem;
+                height: 12rem;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 2rem;
+
+                svg {
+                    font-size: 6rem;
+                    color: var(--primary-color);
+                }
+            }
+
+            .stars {
+                svg {
+                    color: var(--primary-color);
+                    margin: .5rem .5rem;
+                    font-size: 2rem;
+                    opacity: .6;
+                }
+                margin-bottom: 2rem;
+            }
+
+            text-align: center;
+
+            p {
+                font-size: 1.8rem;
+                margin-bottom: 1rem ;
+            }
+
+            span {
+                opacity: 0.6;
+            }
+        }
+    }
+}
