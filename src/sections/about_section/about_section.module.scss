@@ -6,10 +6,28 @@
         padding: 5rem 0 3rem;
         display: flex;
         justify-content: space-between;
+
+        @media all and (max-width: 850px) {
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+        }
     }
     
     .col {
         width: 50%;
+
+        @media all and (max-width: 850px) {
+            width: 100%;
+            max-width: 80%;
+            margin-bottom: 3rem;
+
+            @media all and (max-width: 480px) {
+                max-width: 100%;
+            }
+        }
+
+
         
         h4 {
             text-transform: uppercase;
@@ -22,6 +40,23 @@
 
         &:nth-child(2) {
             margin-left: 1rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 2rem;
+            li {
+                font-size: 2rem;
+
+                a{
+                    display: flex;
+                    text-decoration: underline;
+                    align-items: center;
+                    svg {
+                        margin-right: .5rem;
+                    }
+                }
+            }
         }
 
     }

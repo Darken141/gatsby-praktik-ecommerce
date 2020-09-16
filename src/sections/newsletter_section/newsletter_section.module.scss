@@ -16,7 +16,6 @@
         }
 
         p {
-
             font-size: 1.8rem;
         }
         
@@ -30,6 +29,7 @@
         right: 3rem;
         bottom: 2rem;
         color: var(--container-bg-color);
+        z-index: -1;
     }
 
     

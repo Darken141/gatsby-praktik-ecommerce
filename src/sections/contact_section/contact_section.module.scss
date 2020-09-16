@@ -23,10 +23,14 @@
         bottom: 15rem;
         font-size: 35rem;
         color: #F5FAFE;
+        z-index: -1;
         // opacity: 0.0    5;
+
+        @media all and (max-width: 500px) {
+            font-size: 20rem;
+        }
     }
 }
-
 
 
 
@@ -37,7 +41,7 @@
 
 .form-textarea {
     position: relative;
-    margin: 45px 0;
+    margin: 45px 0 0;
     input[type="password"] {
         letter-spacing: 0.3em;
     }

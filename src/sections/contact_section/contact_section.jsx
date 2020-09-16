@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import Heading from '../../components/heading/heading'
-import { infoStyles, contactSectionStyles, contactFormContainer, formTextarea, waveWrapper, wave } from './contact_section.module.scss'
+import styles, { cssLabel, cssCheckbox, checkboxContainerStyles, infoStyles, contactSectionStyles, contactFormContainer, formTextarea, waveWrapper, wave } from './contact_section.module.scss'
 import CustomInput from '../../components/form_input/form_input'
 import CustomButton from '../../components/button/button'
+import CustomCheckbox from '../../components/checkbox/checkbox'
 import Wave from '../../images/wave-3.svg'
 import { BsInfoCircle } from 'react-icons/bs'
 
@@ -14,6 +15,8 @@ const ContactSection = () => {
 
     return (
         <section id='kontakt' className={contactSectionStyles}>
+            <BsInfoCircle className={infoStyles} />
+
             <div className='container'>
                 <Heading>
                     Máte otázku? Napíšte nám!
@@ -49,6 +52,9 @@ const ContactSection = () => {
                             <textarea id="message" name='message' rows="4" value={message} onChange={e => setMessage(e.target.value)} />
                             <label className={message.length ? "shrink" : ""}>Vaša správa</label>
                         </div>
+
+                        <CustomCheckbox />
+
                         <CustomButton>
                             Odoslať správu
                         </CustomButton>
@@ -56,7 +62,6 @@ const ContactSection = () => {
                 </div>
             </div>
 
-            <BsInfoCircle className={infoStyles} />
 
             <div className={waveWrapper}>
                 <Wave className={wave} />

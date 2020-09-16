@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
-import { section, cardWrapper, card, headingRow, buttonContainer } from './featured_products.module.scss'
+import { productImageStyles, section, cardWrapper, card, headingRow, buttonContainer } from './featured_products.module.scss'
 import Image from 'gatsby-image'
 import CustomButton from '../../components/button/button'
 import Heading from '../../components/heading/heading'
@@ -16,17 +16,20 @@ const FeaturedProducts = () => {
           name
           image {
             childImageSharp {
-              fixed(width: 200) {
-                src
-                aspectRatio
+              fluid {
                 base64
-                originalName
-                height
-                srcSet
-                srcSetWebp
-                srcWebp
                 tracedSVG
-                width
+                aspectRatio
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                sizes
+                originalImg
+                originalName
+                presentationWidth
+                presentationHeight
+                __typename
               }
             }
           }
@@ -47,7 +50,9 @@ const FeaturedProducts = () => {
             data.allStrapiProduct.nodes.map(({ id, name, image, price, slug }) => {
               return (
                 <div key={id} className={card}>
-                  <Image fixed={image.childImageSharp.fixed} />
+                  <div className={productImageStyles}>
+                    <Image fluid={image.childImageSharp.fluid} />
+                  </div>
                   <div className={headingRow}>
                     <h4>{name}</h4>
                     <span>{parseFloat(price).toFixed(2)}€</span>
@@ -59,12 +64,6 @@ const FeaturedProducts = () => {
                       data-item-price={parseFloat(price).toFixed(2)}
                       data-item-url={`/produkty/${slug}`}
                       data-item-name={name}
-
-                    // data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
-                    // data-item-image="/assets/images/starry-night.jpg"
-                    // data-item-name="The Starry Night"
-                    // data-item-custom1-name="Frame color"
-                    // data-item-custom1-options="Black|Brown|Gold">
                     >
                       Pridať do košíka
                     </button>

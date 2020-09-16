@@ -4,6 +4,7 @@ import { newsLetterSectionStyles, formContainer, formInput, at, waveWrapper, wav
 import Wave from '../../images/wave.svg'
 import CustomButton from '../../components/button/button'
 import CustomInput from '../../components/form_input/form_input'
+import CustomCheckbox from '../../components/checkbox/checkbox'
 
 const NewsletterSection = () => {
     const [fName, setFName] = useState('')
@@ -48,6 +49,7 @@ const NewsletterSection = () => {
                         handleChange={e => setEmail(e.target.value)}
                         label="Váš email"
                     />
+                    <CustomCheckbox />
                     <CustomButton>
                         Odoberať novinky
                     </CustomButton>

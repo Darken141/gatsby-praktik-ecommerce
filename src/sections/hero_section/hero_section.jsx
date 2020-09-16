@@ -67,18 +67,22 @@ const HeroSection = () => {
 
 
   return (
-    <section id='hero' className={section + " container"}>
-      <div className={row}>
-        <div className={col}>
-          <h1>{heading}</h1>
-          <h2>{subHeading}</h2>
-          <CustomButton>Preist do Obchodu</CustomButton>
-        </div>
-        <div className={col}>
-          <Blob className={blob} />
-          <Image fluid={background.childImageSharp.fluid} />
+    <section id='hero' className={section}>
+      <div className='container'>
+
+        <div className={row}>
+          <div className={col}>
+            <h1>{heading}</h1>
+            <h2>{subHeading}</h2>
+            <CustomButton>Preist do Obchodu</CustomButton>
+          </div>
+          <div className={col}>
+            <Blob className={blob} />
+            <Image fluid={background.childImageSharp.fluid} />
+          </div>
         </div>
       </div>
+
       <div className={waveWrapper}>
         <Wave className={wave} />
       </div>

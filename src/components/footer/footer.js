@@ -131,7 +131,7 @@ const Footer = () => {
                     <h4>Newsletter</h4>
                     <div className={newsletterInputStyles}>
                         <label>Váš e-mail:</label>
-                        <input type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder='priklad@gmail,com' />
+                        <input type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder='priklad@gmail.com' />
                         <CustomButton>
                             Odoberať novinky
                         </CustomButton>
