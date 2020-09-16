@@ -1,11 +1,13 @@
 .blog-page {
     // margin-top: var(--header-height)/;
     max-width: 74rem;
-    margin: 0 auto;
+    margin:  auto;
+    padding: 0 1rem;
 
     h1 {
         font-size: 4.8rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
+        line-height: 1.2;
     }
 
     h2 {
@@ -23,6 +25,7 @@
     }
 
     ul, ol {
+        margin-bottom: 5rem;
         li {
             margin-left: 2rem;
         }
@@ -31,4 +34,13 @@
     img {
         width: 100%;
     }
+
+    p {
+        font-size: 1.8rem;
+        margin-bottom: 5rem;
+
+        
+    }
+
+
 }

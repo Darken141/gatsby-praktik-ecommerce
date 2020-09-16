@@ -9,7 +9,6 @@ import { graphql } from 'gatsby'
 
 const ProductPage = ({ data }) => {
   const { product } = data
-  console.log(product)
 
   return (
     <Layout>
@@ -18,7 +17,7 @@ const ProductPage = ({ data }) => {
         <div className={row}>
           <div className={col}>
 
-            <Image fixed={product.image.childImageSharp.fixed} />
+            <Image fluid={product.image.childImageSharp.fluid} />
           </div>
           <div className={col}>
             <Blob />
@@ -56,18 +55,21 @@ export const query = graphql`
     description
     image {
       childImageSharp {
-        fixed (width: 500){
-            src
-            aspectRatio
-            base64
-            originalName
-            height
-            srcSet
-            srcSetWebp
-            srcWebp
-            tracedSVG
-            width
-        }
+        fluid {
+          base64
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+          originalImg
+          originalName
+          presentationWidth
+          presentationHeight
+          __typename
+        } 
       }
     }
   }

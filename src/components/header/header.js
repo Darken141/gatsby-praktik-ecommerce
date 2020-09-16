@@ -9,7 +9,6 @@ import scrollTo from 'gatsby-plugin-smoothscroll'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
-  console.log(isOpen)
 
   return (
     <header className={header}>

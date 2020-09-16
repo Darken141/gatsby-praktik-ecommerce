@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { homePageNavItems, navItems } from '../../constants/nav_items'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import { Link } from 'gatsby'
-import CustomInput from '../form_input/form_input'
 import CustomButton from '../button/button'
 
 import { footer, row, col, sitemapStyles, openingHours, emailStyles, newsletterInputStyles } from './footer.module.scss'
