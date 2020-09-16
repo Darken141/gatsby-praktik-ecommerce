@@ -74,7 +74,7 @@ const HeroSection = () => {
           <div className={col}>
             <h1>{heading}</h1>
             <h2>{subHeading}</h2>
-            <CustomButton>Preist do Obchodu</CustomButton>
+            <CustomButton>Prejsť do Obchodu</CustomButton>
           </div>
           <div className={col}>
             <Blob className={blob} />

@@ -1,4 +1,4 @@
-.footer {
+    .footer {
     position: relative;
     z-index: 9999;
     background-color: var(--footer-bg-color);
@@ -9,11 +9,18 @@
     .row {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: space-between;
 
         .col {
             // min-width: 35rem;
-            margin: 0 1rem 3rem;
+            // margin: 0 1rem 3rem;
+            // margin: 0 auto;
+
+            margin-bottom: 3rem;
+
+            @media all and (max-width: 480px) {
+                width: 100%;
+            }
 
             h4 {
                 text-transform: uppercase;
@@ -27,7 +34,7 @@
 
             .opening-hours {
                 list-style: none;
-                margin-left: 2rem;
+                // margin-left: 2rem;
                 margin-bottom: 2rem;
 
                 li {
