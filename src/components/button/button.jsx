@@ -3,7 +3,7 @@ import { buttonStyles, invertButtonStyles } from './button.module.scss'
 
 const CustomButton = ({ ...props }) => {
     return (
-        <button className={props.invert ? invertButtonStyles : buttonStyles}>
+        <button type={props.type ? props.type : "button"} className={props.invert ? invertButtonStyles : buttonStyles}>
             {props.children}
         </button>
     )

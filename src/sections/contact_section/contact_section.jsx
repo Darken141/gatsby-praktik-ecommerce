@@ -23,7 +23,8 @@ const ContactSection = () => {
                 </Heading>
 
                 <div className={contactFormContainer}>
-                    <form>
+                    <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="contact" />
                         <CustomInput
                             type='text'
                             id='firstname'
@@ -55,7 +56,7 @@ const ContactSection = () => {
 
                         <CustomCheckbox />
 
-                        <CustomButton>
+                        <CustomButton type="submit">
                             Odoslať správu
                         </CustomButton>
                     </form>
