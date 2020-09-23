@@ -13,7 +13,12 @@ const TestimonialSection = () => {
                 </Heading>
 
                 <div className={testimonialContainer}>
-                    <div className={testimonialCard}>
+                    <div className={testimonialCard}
+                        data-sal="slide-right"
+                        // data-sal-delay={`${idx}000`}
+                        data-sal-easing="ease-in-out"
+                        data-sal-duration="1500"
+                    >
                         <div className={avatar}>
                             <BsPerson />
                         </div>
@@ -29,7 +34,12 @@ const TestimonialSection = () => {
                         </p>
                         <span>- Roman Pastorek</span>
                     </div>
-                    <div className={testimonialCard}>
+                    <div className={testimonialCard}
+                        data-sal="slide-up"
+                        // data-sal-delay={`${idx}000`}
+                        data-sal-easing="ease-in-out"
+                        data-sal-duration="1500"
+                    >
                         <div className={avatar}>
                             <BsPerson />
                         </div>
@@ -47,7 +57,12 @@ const TestimonialSection = () => {
 
                     </div>
 
-                    <div className={testimonialCard}>
+                    <div className={testimonialCard}
+                        data-sal="slide-left"
+                        // data-sal-delay={`${idx}000`}
+                        data-sal-easing="ease-in-out"
+                        data-sal-duration="1500"
+                    >
                         <div className={avatar}>
                             <BsPerson />
                         </div>

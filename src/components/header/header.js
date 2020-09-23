@@ -4,7 +4,7 @@ import { openStyles, mobileDropdownMenuStyles, hamMenu, desktopNav, mobileNav, h
 import Logo from '../../images/praktik_logo.svg'
 import { MdShoppingCart } from 'react-icons/md'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { navItems, homePageNavItems } from '../../constants/nav_items'
+import { homePageNavItems } from '../../constants/nav_items'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 
 const Header = () => {

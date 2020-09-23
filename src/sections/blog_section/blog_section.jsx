@@ -45,9 +45,14 @@ const BlogSection = () => {
 
                 <div className={postWrapper}>
                     {
-                        data.allStrapiPost.nodes.map(({ id, name, slug, cover }) => {
+                        data.allStrapiPost.nodes.map(({ id, name, slug, cover }, idx) => {
                             return (
-                                <Link key={id} to={`/blog/${slug}`}>
+                                <Link key={id} to={`/blog/${slug}`}
+                                    data-sal="fade"
+                                    data-sal-delay={`${idx}000`}
+                                    data-sal-easing="ease-in"
+                                    data-sal-duration="1000"
+                                >
                                     <div>
                                         <Image fluid={cover.childImageSharp.fluid} />
                                         <h4>

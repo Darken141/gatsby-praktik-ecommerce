@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Heading from '../../components/heading/heading'
-import { newsLetterSectionStyles, formContainer, formInput, at, waveWrapper, wave } from './newsletter_section.module.scss'
+import { newsLetterSectionStyles, formContainer, at, waveWrapper, wave } from './newsletter_section.module.scss'
 import Wave from '../../images/wave.svg'
 import CustomButton from '../../components/button/button'
 import CustomInput from '../../components/form_input/form_input'
@@ -10,7 +10,7 @@ const NewsletterSection = () => {
     const [fName, setFName] = useState('')
     const [lName, setLName] = useState('')
     const [email, setEmail] = useState('')
-    const [GDPR, setGDPR] = useState(false)
+    // const [GDPR, setGDPR] = useState(false)
 
 
 
@@ -22,7 +22,12 @@ const NewsletterSection = () => {
                 <Heading>
                     Buďte informovaný o aktuálnych novinkách v našom obchode
                 </Heading>
-                <div className={formContainer}>
+                <div className={formContainer}
+                    data-sal="slide-left"
+                    // data-sal-delay={`${idx}000`}
+                    data-sal-easing="ease-in-out"
+                    data-sal-duration="1500"
+                >
                     <h4>Newsletter</h4>
                     <p>Maximálne raz do mesiaca Vám napíšeme, čo nové sme si pre Vás pripravili.</p>
                     <CustomInput

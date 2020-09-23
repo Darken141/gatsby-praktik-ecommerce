@@ -16,6 +16,7 @@
     .col {
         position: relative;
         width: 50%;
+        padding: 0 1rem;
 
         @media all and (max-width: 850px) {
             width: 80%;
@@ -33,5 +34,45 @@
             right: 0;
             z-index: -1;
         }
+
+        img {
+            max-height: 25rem;
+            object-fit: contain !important;
+        }
     }
+}
+
+.content-styles {
+    padding: 3rem 0;
+    h1 {
+        margin-bottom: 3rem;
+        line-height: 1;
+    }
+
+    h3 {
+        margin-bottom: 1rem;
+    }
+
+    ul, ol {
+        margin-left: 2rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.image-wrapper-styles {
+    display: grid;
+    grid-template-rows: 30rem 20rem;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas: "f f f f f";
+
+    :first-child {
+        grid-area: f;
+        // grid-row-start: 1;
+        // grid-row-end: 4;
+    }
+
+    :not(:first-child){
+        margin-right: 1rem;
+    }
+
 }

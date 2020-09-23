@@ -6,6 +6,44 @@
 
 // You can delete this file if you're not using it
 const path = require('path')
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
+
+
+exports.onCreateNode = async ({
+    node,
+    actions,
+    store,
+    cache,
+    createNodeId,
+}) => {
+    const { createNode } = actions
+
+    let multipleImages = node.images
+
+    if (node.internal.type === "StrapiProduct") {
+        if (multipleImages.length > 0) {
+            // multipleImages.forEach(el => console.log(el))
+            const images = await Promise.all(
+                multipleImages.map(el => {
+                    console.log(el.url)
+                    return createRemoteFileNode({
+                        url: `http://localhost:1337${el.url}`,
+                        parentNodeId: node.id,
+                        store,
+                        cache,
+                        createNode,
+                        createNodeId,
+                    })
+                }
+                )
+            )
+
+            multipleImages.forEach((image, i) => {
+                image.localFile___NODE = images[i].id
+            })
+        }
+    }
+}
 
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions

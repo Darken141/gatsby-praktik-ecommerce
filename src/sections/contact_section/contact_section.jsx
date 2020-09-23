@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Heading from '../../components/heading/heading'
-import styles, { cssLabel, cssCheckbox, checkboxContainerStyles, infoStyles, contactSectionStyles, contactFormContainer, formTextarea, waveWrapper, wave } from './contact_section.module.scss'
+import { infoStyles, contactSectionStyles, contactFormContainer, formTextarea, waveWrapper, wave } from './contact_section.module.scss'
 import CustomInput from '../../components/form_input/form_input'
 import CustomButton from '../../components/button/button'
 import CustomCheckbox from '../../components/checkbox/checkbox'
@@ -22,7 +22,12 @@ const ContactSection = () => {
                     Máte otázku? Napíšte nám!
                 </Heading>
 
-                <div className={contactFormContainer}>
+                <div className={contactFormContainer}
+                    data-sal="slide-right"
+                    // data-sal-delay={`${idx}000`}
+                    data-sal-easing="ease-in-out"
+                    data-sal-duration="1500"
+                >
                     <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
                         <input type="hidden" name="form-name" value="contact" />
                         <CustomInput
@@ -51,7 +56,7 @@ const ContactSection = () => {
                         />
                         <div className={formTextarea}>
                             <textarea id="message" name='message' rows="4" value={message} onChange={e => setMessage(e.target.value)} />
-                            <label className={message.length ? "shrink" : ""}>Vaša správa</label>
+                            <label htmlFor="message" className={message.length ? "shrink" : ""}>Vaša správa</label>
                         </div>
 
                         <CustomCheckbox />

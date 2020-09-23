@@ -40,7 +40,12 @@ const AboutSection = () => {
       <div className='container'>
         <Heading>Dovoľte Nám sa predstaviť</Heading>
         <div className={row}>
-          <div className={col}>
+          <div className={col}
+            data-sal="slide-right"
+            // data-sal-delay={`${idx}000`}
+            data-sal-easing="ease-in-out"
+            data-sal-duration="1500"
+          >
             <ReactMarkdown source={data.strapiAboutSection.content} />
             <ul>
               <li>
@@ -51,7 +56,12 @@ const AboutSection = () => {
 
             </ul>
           </div>
-          <div className={col}>
+          <div className={col}
+            data-sal="slide-left"
+            // data-sal-delay={`${idx}000`}
+            data-sal-easing="ease-in-out"
+            data-sal-duration="1500"
+          >
             <Image fluid={data.strapiAboutSection.image.childImageSharp.fluid} />
           </div>
         </div>

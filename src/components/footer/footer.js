@@ -8,7 +8,7 @@ import { footer, row, col, sitemapStyles, openingHours, emailStyles, newsletterI
 
 const Footer = () => {
     const [email, setEmail] = useState('')
-    const [GDPR, setGDPR] = useState(false)
+    // const [GDPR, setGDPR] = useState(false)
 
     return (
         <footer className={footer}>
@@ -129,8 +129,8 @@ const Footer = () => {
                     <div className={col}>
                         <h4>Newsletter</h4>
                         <div className={newsletterInputStyles}>
-                            <label>Váš e-mail:</label>
-                            <input type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder='priklad@gmail.com' />
+                            <label htmlFor="footer-email">Váš e-mail:</label>
+                            <input id='footer-email' name='footer-email' type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder='priklad@gmail.com' />
                             <CustomButton>
                                 Odoberať novinky
                         </CustomButton>
@@ -138,7 +138,12 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <span>
+            <span
+                data-sal="slide-up"
+                // data-sal-delay={`${idx}000`}
+                data-sal-easing="ease-in-out"
+                data-sal-duration="1500"
+            >
                 &copy; 2020 CODERKIN
             </span>
         </footer>

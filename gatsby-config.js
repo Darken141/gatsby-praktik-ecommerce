@@ -19,12 +19,13 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     `gatsby-plugin-smoothscroll`,
+    `gatsby-plugin-scroll-reveal`,
     {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: process.env.STRAPI_HOST,
         // queryLimit: 1000, // Default to 100
-        contentTypes: [`product`, `post`],
+        contentTypes: [`product`, `post`, 'category'],
         //If using single types place them in this array.
         singleTypes: [`hero-section`, `about-section`],
         // Possibility to login with a strapi user, when content types are not publically available (optional).

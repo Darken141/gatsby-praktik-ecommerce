@@ -71,12 +71,22 @@ const HeroSection = () => {
       <div className='container'>
 
         <div className={row}>
-          <div className={col}>
+          <div className={col}
+            data-sal="slide-right"
+            // data-sal-delay="300"
+            data-sal-easing="ease-in-out"
+            data-sal-duration="1500"
+          >
             <h1>{heading}</h1>
             <h2>{subHeading}</h2>
             <CustomButton>Prejsť do Obchodu</CustomButton>
           </div>
-          <div className={col}>
+          <div className={col}
+            data-sal="slide-left"
+            // data-sal-delay="300"
+            data-sal-easing="ease-in-out"
+            data-sal-duration="1800"
+          >
             <Blob className={blob} />
             <Image fluid={background.childImageSharp.fluid} />
           </div>
