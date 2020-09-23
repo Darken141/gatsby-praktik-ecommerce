@@ -27,7 +27,7 @@ exports.onCreateNode = async ({
                 multipleImages.map(el => {
                     console.log(el.url)
                     return createRemoteFileNode({
-                        url: `http://localhost:1337${el.url}`,
+                        url: `${process.env.STRAPI_HOST}${el.url}`,
                         parentNodeId: node.id,
                         store,
                         cache,
