@@ -26,14 +26,25 @@ exports.onCreateNode = async ({
             const images = await Promise.all(
                 multipleImages.map(el => {
                     console.log(el.url)
-                    return createRemoteFileNode({
-                        url: `${process.env.STRAPI_HOST}${el.url}`,
-                        parentNodeId: node.id,
-                        store,
-                        cache,
-                        createNode,
-                        createNodeId,
-                    })
+                    if (process.env.NODE_ENV === 'production') {
+                        return createRemoteFileNode({
+                            url: `${el.url}`,
+                            parentNodeId: node.id,
+                            store,
+                            cache,
+                            createNode,
+                            createNodeId,
+                        })
+                    } else {
+                        return createRemoteFileNode({
+                            url: `${process.env.STRAPI_HOST}${el.url}`,
+                            parentNodeId: node.id,
+                            store,
+                            cache,
+                            createNode,
+                            createNodeId,
+                        })
+                    }
                 }
                 )
             )
