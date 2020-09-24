@@ -1,6 +1,8 @@
 .testimonial-section-styles {
     padding: 5rem 0;
     background-color: var(--container-bg-color);
+    overflow: hidden;
+
 
     .testimonial-container {
         display: flex;
