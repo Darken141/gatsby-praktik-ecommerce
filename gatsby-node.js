@@ -19,13 +19,53 @@ exports.onCreateNode = async ({
     const { createNode } = actions
 
     let multipleImages = node.images
+    let categoryProducts = node.products
+
+    if (node.internal.type === "StrapiCategory") {
+        // console.log(categoryProducts)
+        if (categoryProducts.length > 0) {
+            // multipleImages.forEach(el => console.log(el))
+            categoryProducts.forEach(async (products) => {
+                let categoryMultipleImages = products.images
+
+                // console.log(categoryMultipleImages)
+                const images = await Promise.all(
+                    categoryMultipleImages.map(el => {
+                        if (process.env.NODE_ENV === 'production') {
+                            return createRemoteFileNode({
+                                url: `${el.url}`,
+                                parentNodeId: node.id,
+                                store,
+                                cache,
+                                createNode,
+                                createNodeId,
+                            })
+                        } else {
+                            return createRemoteFileNode({
+                                url: `${process.env.STRAPI_HOST}${el.url}`,
+                                parentNodeId: node.id,
+                                store,
+                                cache,
+                                createNode,
+                                createNodeId,
+                            })
+                        }
+                    }
+                    )
+                )
+
+                categoryMultipleImages.forEach((image, i) => {
+                    image.localFile___NODE = images[i].id
+                })
+            })
+        }
+    }
 
     if (node.internal.type === "StrapiProduct") {
         if (multipleImages.length > 0) {
             // multipleImages.forEach(el => console.log(el))
             const images = await Promise.all(
                 multipleImages.map(el => {
-                    console.log(el.url)
                     if (process.env.NODE_ENV === 'production') {
                         return createRemoteFileNode({
                             url: `${el.url}`,

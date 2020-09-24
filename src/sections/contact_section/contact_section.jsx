@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import Heading from '../../components/heading/heading'
-import { infoStyles, contactSectionStyles, contactFormContainer, formTextarea, waveWrapper, wave } from './contact_section.module.scss'
+import { infoStyles, contactSectionStyles, contactFormContainer, formTextarea } from './contact_section.module.scss'
 import CustomInput from '../../components/form_input/form_input'
 import CustomButton from '../../components/button/button'
 import CustomCheckbox from '../../components/checkbox/checkbox'
-import Wave from '../../images/wave-3.svg'
 import { BsInfoCircle } from 'react-icons/bs'
 
-const ContactSection = () => {
+const ContactSection = ({ heading }) => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
@@ -19,7 +18,7 @@ const ContactSection = () => {
 
             <div className='container'>
                 <Heading>
-                    Máte otázku? Napíšte nám!
+                    {heading}
                 </Heading>
 
                 <div className={contactFormContainer}
@@ -66,11 +65,6 @@ const ContactSection = () => {
                         </CustomButton>
                     </form>
                 </div>
-            </div>
-
-
-            <div className={waveWrapper}>
-                <Wave className={wave} />
             </div>
         </section>
     )

@@ -61,7 +61,9 @@ const NavList = () => {
           <NavItem key={id} slug={slug}>{name}</NavItem>
         ))
       }
-
+      <li>
+        <Link to='/kategorie'>Kategorie</Link>
+      </li>
       <li className={cartContainer}>
         <button className={cartButton + " snipcart-checkout"}>
           <span className="snipcart-items-count"></span>

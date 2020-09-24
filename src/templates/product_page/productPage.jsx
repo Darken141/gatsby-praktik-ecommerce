@@ -18,8 +18,8 @@ const ProductPage = ({ data }) => {
           <div className={col}>
             <div className={imageWrapperStyles}>
               {
-                product.images.map(({ localFile }) => (
-                  <Image fluid={localFile.childImageSharp.fluid} />
+                product.images.map(({ localFile }, idx) => (
+                  <Image key={idx} fluid={localFile.childImageSharp.fluid} />
 
                 ))
               }

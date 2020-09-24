@@ -86,7 +86,7 @@
     span {
         display: block;
         text-align: center;
-        opacity: 0.05;
+        opacity: 0.05 !important;
         font-weight: 900;
         font-size: 6rem;
 
@@ -114,4 +114,12 @@
             margin-bottom: 1rem;
         }
     }
+}
+
+.wave-wrapper {
+    position: relative;
+    left: 0;
+    bottom: -1rem;
+    width: 100%;
+
 }

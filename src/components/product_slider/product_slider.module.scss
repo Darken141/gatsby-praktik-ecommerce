@@ -1,0 +1,36 @@
+    .slider-wrapper-styles {
+        padding: 5rem 0;
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: hidden;
+
+        &:not(:last-child) {
+            margin-bottom: 5rem;
+        }
+
+        /* width */
+        &::-webkit-scrollbar {
+            width: 10px;
+            cursor: pointer;
+            margin: 5rem;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            // background: var(--container-bg-color);
+            background: #fff;
+            border-radius: 15px;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+
+            background: var(--primary-color);
+            border-radius: 15px;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: lighten(#234579, 25);      
+        }
+    }

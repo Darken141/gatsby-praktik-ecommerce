@@ -12,7 +12,7 @@ import ContactSection from '../sections/contact_section/contact_section'
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Domov" />
+    <SEO title="Domovská stránka" />
     <HeroSection />
     <FeaturedProducts />
     <DownWave />
@@ -22,7 +22,7 @@ const IndexPage = () => (
     <NewsletterSection />
     <TestimonialSection />
     <DownWave />
-    <ContactSection />
+    <ContactSection heading="Máte otázku? Napíšte nám!" />
   </Layout>
 )
 
