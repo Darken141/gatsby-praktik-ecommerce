@@ -6,6 +6,7 @@
         padding: 5rem 0 3rem;
         display: flex;
         justify-content: space-between;
+        overflow-x: hidden;
 
         @media all and (max-width: 850px) {
             flex-direction: column-reverse;
