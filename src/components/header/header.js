@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
 import React, { useState } from "react"
-import { openStyles, mobileDropdownMenuStyles, hamMenu, desktopNav, mobileNav, header, container, logo, cartButton, menuItem, cartContainer } from './header.module.scss'
+import { activeMenuItemStyles, openStyles, mobileDropdownMenuStyles, hamMenu, desktopNav, mobileNav, header, container, logo, cartButton, menuItem, cartContainer } from './header.module.scss'
 import Logo from '../../images/praktik_logo.svg'
 import { MdShoppingCart } from 'react-icons/md'
 import { GiHamburgerMenu } from 'react-icons/gi'
@@ -56,7 +56,7 @@ const MobileDropdownMenu = ({ isOpen, setIsOpen }) => {
             <ScrollNavItem key={id} slug={slug} setIsOpen={setIsOpen}>{name}</ScrollNavItem>
           ))}
           <li>
-            <Link className={menuItem} to='/kategorie'>Kategorie</Link>
+            <Link activeClassName={activeMenuItemStyles} className={menuItem} to='/kategorie'>Kategorie</Link>
           </li>
         </ul>
       ) : (
@@ -82,7 +82,7 @@ const NavList = () => {
             <ScrollNavItem key={id} slug={slug} >{name}</ScrollNavItem>
           ))}
           <li>
-            <Link className={menuItem} to='/kategorie'>Kategorie</Link>
+            <Link activeClassName={activeMenuItemStyles} className={menuItem} to='/kategorie'>Kategorie</Link>
           </li>
         </ul>
       ) : (
@@ -121,7 +121,7 @@ const ScrollNavItem = ({ children, slug, setIsOpen }) => {
 const LinkNavItem = ({ children, slug }) => {
   return (
     <li>
-      <Link className={menuItem} to={slug}>{children}</Link>
+      <Link activeClassName={activeMenuItemStyles} className={menuItem} to={slug}>{children}</Link>
     </li>
   )
 }

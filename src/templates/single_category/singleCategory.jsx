@@ -4,7 +4,6 @@ import Layout from '../../components/layout/layout'
 import ProductCard from '../../components/product_card/product_card'
 import DownWave from '../../images/down_wave.svg'
 
-
 import { productListStyles, singleCategoryStyles } from './singleCategory.module.scss'
 
 const SingleCategory = ({ data }) => {

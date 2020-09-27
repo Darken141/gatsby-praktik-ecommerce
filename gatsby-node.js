@@ -95,16 +95,6 @@ exports.onCreateNode = async ({
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
 
-    const result = await graphql(`
-    {
-        allStrapiProduct {
-            nodes {
-            slug
-            }
-        }
-    }
-    `)
-
     const blogResult = await graphql(`
     {
         allStrapiPost {
@@ -119,20 +109,37 @@ exports.createPages = async ({ graphql, actions }) => {
     {
         allStrapiCategory {
             nodes {
-            strapiId
+                strapiId
+                products {
+                    slug
+                }
             }
         }
     }
     `)
 
-    result.data.allStrapiProduct.nodes.forEach((product) => {
+    categoryResult.data.allStrapiCategory.nodes.forEach(({ strapiId, products }) => {
+        console.log(strapiId)
+        console.log(products)
         createPage({
-            path: `/produkty/${product.slug}`,
-            component: path.resolve('src/templates/product_page/productPage.jsx'),
+            path: `/kategorie/${strapiId}`,
+            component: path.resolve('src/templates/single_category/singleCategory.jsx'),
             context: {
-                slug: product.slug
+                id: strapiId
             }
         })
+
+        products.forEach(({ slug }) => {
+            createPage({
+                path: `/produkty/${slug}`,
+                component: path.resolve('src/templates/product_page/productPage.jsx'),
+                context: {
+                    slug: slug,
+                    id: strapiId
+                }
+            })
+        })
+
     })
 
     blogResult.data.allStrapiPost.nodes.forEach(post => {
@@ -141,16 +148,6 @@ exports.createPages = async ({ graphql, actions }) => {
             component: path.resolve('src/templates/blog_page/blogPage.jsx'),
             context: {
                 slug: post.slug
-            }
-        })
-    })
-
-    categoryResult.data.allStrapiCategory.nodes.forEach(category => {
-        createPage({
-            path: `/kategorie/${category.strapiId}`,
-            component: path.resolve('src/templates/single_category/singleCategory.jsx'),
-            context: {
-                id: category.strapiId
             }
         })
     })

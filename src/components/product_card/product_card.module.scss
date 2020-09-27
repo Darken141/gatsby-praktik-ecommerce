@@ -7,11 +7,14 @@
             flex-direction: column;
             justify-content: space-between;
             border-radius: 2.5rem;
+            box-shadow: 15px 30px 60px 0px rgba(138,149,158,0.1);;
 
             @media all and (max-width: 850px) {
                 width: 30rem;
                 padding: 2rem;
                 margin-right: 2rem;
+
+
             }
 
             .product-image-styles {
@@ -27,15 +30,15 @@
                     
                     @media all and (max-width: 850px) {
                         max-height: 10rem;
-                        @media all and (max-width: 850px) {
+                        @media all and (max-width: 480px) {
                         max-height: 8rem;
                     }
                     }
                 }
                 @media all and (max-width: 850px) {
                     max-height: 10rem;
-                    @media all and (max-width: 850px) {
-                        margin-bottom: 1rem;
+                    @media all and (max-width: 480px) {
+                        margin-bottom: 5rem;
                         max-height: 8rem;
                     }
                 }
@@ -51,6 +54,7 @@
 
                 @media all and (max-width: 850px) {
                     width: 20rem;
+
                 }
                 
                 span {

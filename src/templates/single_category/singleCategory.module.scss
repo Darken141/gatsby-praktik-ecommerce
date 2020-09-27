@@ -4,16 +4,34 @@
     padding: 5rem 0;
 }
 
-.product-list-styles {
+.product-list-styles {  
     display: flex;
-    flex-flow: wrap;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    // @media all and (max-width: 850px) {
+    // grid-template-columns: 1fr 1fr;
+
+    // @media all and (max-width: 480px) {
+    //     grid-template-columns: 1fr;
+    // }
+    // }
     
     div {
         margin-bottom: 5rem;
 
+            @media all and (max-width: 480px) {
+                width: 100%;
+                margin-right: 0;
+            }
+
         div {
             margin-bottom: 0;
+
+            @media all and (max-width: 480px) {
+                width: 100% !important;
+                // margin-bottom: 3rem;
+            }
         }
     }
 }
