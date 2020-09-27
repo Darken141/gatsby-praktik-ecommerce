@@ -1,13 +1,13 @@
 export const navItems = [
     {
         id: 1,
-        name: "Privacy policy",
-        slug: "/privacy policy"
+        name: "Domov",
+        slug: "/"
     },
     {
         id: 2,
-        name: "Terms of service",
-        slug: "/terms of service"
+        name: "Kategorie",
+        slug: "/kategorie"
     }
 ]
 
@@ -36,5 +36,18 @@ export const homePageNavItems = [
         id: 5,
         name: "Kontakt",
         slug: "#kontakt"
+    }
+]
+
+export const footerNavItems = [
+    {
+        id: 1,
+        name: "Privacy policy",
+        slug: "/privacy policy"
+    },
+    {
+        id: 2,
+        name: "Terms of service",
+        slug: "/terms of service"
     }
 ]

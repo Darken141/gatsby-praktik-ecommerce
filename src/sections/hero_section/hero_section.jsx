@@ -1,11 +1,8 @@
 import React from 'react'
-import { section, wave, waveWrapper, row, col, blob } from './hero_section.module.scss'
-// import BackgroundSlider from 'gatsby-image-background-slider'
+import { Link } from 'gatsby'
+import { section, wave, waveWrapper, row, col, blob, ctaStyles } from './hero_section.module.scss'
 import { useStaticQuery, graphql } from 'gatsby'
 import Wave from '../../images/wave.svg'
-// import Wave2 from '../../images/wave-2.svg'
-// import Wave3 from '../../images/wave-3.svg'
-import CustomButton from '../../components/button/button'
 import Image from 'gatsby-image'
 import Blob from '../../images/hero_blob.svg'
 
@@ -79,7 +76,7 @@ const HeroSection = () => {
           >
             <h1>{heading}</h1>
             <h2>{subHeading}</h2>
-            <CustomButton>Prejsť do Obchodu</CustomButton>
+            <Link to='/kategorie' className={ctaStyles}>Prejsť do Obchodu</Link>
           </div>
           <div className={col}
             data-sal="slide-left"

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { homePageNavItems, navItems } from '../../constants/nav_items'
+import { homePageNavItems, navItems, footerNavItems } from '../../constants/nav_items'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import { Link } from 'gatsby'
 import CustomButton from '../button/button'
@@ -27,18 +27,7 @@ const Footer = () => {
                                 <li>
                                     <Link to='/'>Domov</Link>
                                 </li>
-                                <ul>
-                                    {homePageNavItems.map(({ id, name, slug }) => {
-                                        return (
-                                            <li key={id}>
-                                                <button onClick={() => scrollTo(slug)}>
-                                                    {name}
-                                                </button>
-                                            </li>
-                                        )
-                                    })}
-                                </ul>
-                                {navItems.map(({ id, name, slug }) => {
+                                {footerNavItems.map(({ id, name, slug }) => {
                                     return (
                                         <li key={id}>
                                             <Link to={slug}>

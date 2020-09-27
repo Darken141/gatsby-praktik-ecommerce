@@ -4,8 +4,9 @@ import { openStyles, mobileDropdownMenuStyles, hamMenu, desktopNav, mobileNav, h
 import Logo from '../../images/praktik_logo.svg'
 import { MdShoppingCart } from 'react-icons/md'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { homePageNavItems } from '../../constants/nav_items'
+import { homePageNavItems, navItems } from '../../constants/nav_items'
 import scrollTo from 'gatsby-plugin-smoothscroll'
+import { useLocation } from '@reach/router'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,49 +22,77 @@ const Header = () => {
         <nav className={desktopNav}>
           <NavList />
         </nav>
-        <nav className={mobileNav}>
-          <div className={cartContainer}>
-            <button className={cartButton + " snipcart-checkout"}>
-              <span className="snipcart-items-count"></span>
-              <MdShoppingCart />
-            </button>
-            <span className="snipcart-total-price"></span>
-          </div>
-          <GiHamburgerMenu className={hamMenu} onClick={() => setIsOpen(!isOpen)} />
-        </nav>
+        <MobileNav setIsOpen={setIsOpen} isOpen={isOpen} />
       </div>
       <MobileDropdownMenu isOpen={isOpen} setIsOpen={setIsOpen} />
     </header >
   )
 }
 
+const MobileNav = ({ setIsOpen, isOpen }) => {
+  return (
+    <nav className={mobileNav}>
+      <div className={cartContainer}>
+        <button className={cartButton + " snipcart-checkout"}>
+          <span className="snipcart-items-count"></span>
+          <MdShoppingCart />
+        </button>
+        <span className="snipcart-total-price"></span>
+      </div>
+      <GiHamburgerMenu className={hamMenu} onClick={() => setIsOpen(!isOpen)} />
+    </nav>
+  )
+}
+
 const MobileDropdownMenu = ({ isOpen, setIsOpen }) => {
+  const { pathname } = useLocation()
+
 
   return (
-    <div className={isOpen ? `${openStyles}` : mobileDropdownMenuStyles}>
-      <ul>
-        {
-          homePageNavItems.map(({ id, name, slug }) => (
-            <NavItem key={id} slug={slug} setIsOpen={setIsOpen}>{name}</NavItem>
-          ))
-        }
-      </ul>
+    <div className={isOpen ? openStyles : mobileDropdownMenuStyles}>
+      {pathname === '/' ? (
+        <ul>
+          {homePageNavItems.map(({ id, name, slug }) => (
+            <ScrollNavItem key={id} slug={slug} setIsOpen={setIsOpen}>{name}</ScrollNavItem>
+          ))}
+          <li>
+            <Link className={menuItem} to='/kategorie'>Kategorie</Link>
+          </li>
+        </ul>
+      ) : (
+          <ul>
+            {navItems.map(({ id, name, slug }) => (
+              <LinkNavItem key={id} slug={slug} >{name}</LinkNavItem>
+            ))}
+          </ul>
+        )}
     </div>
   )
 
 }
 
 const NavList = () => {
+  const { pathname } = useLocation()
+
   return (
-    <ul>
-      {
-        homePageNavItems.map(({ id, name, slug }) => (
-          <NavItem key={id} slug={slug}>{name}</NavItem>
-        ))
-      }
-      <li>
-        <Link to='/kategorie'>Kategorie</Link>
-      </li>
+    <React.Fragment>
+      {pathname === '/' ? (
+        <ul>
+          {homePageNavItems.map(({ id, name, slug }) => (
+            <ScrollNavItem key={id} slug={slug} >{name}</ScrollNavItem>
+          ))}
+          <li>
+            <Link className={menuItem} to='/kategorie'>Kategorie</Link>
+          </li>
+        </ul>
+      ) : (
+          <ul>
+            {navItems.map(({ id, name, slug }) => (
+              <LinkNavItem key={id} slug={slug} >{name}</LinkNavItem>
+            ))}
+          </ul>
+        )}
+
       <li className={cartContainer}>
         <button className={cartButton + " snipcart-checkout"}>
           <span className="snipcart-items-count"></span>
@@ -71,14 +100,13 @@ const NavList = () => {
         </button>
         <span className="snipcart-total-price"></span>
       </li>
-    </ul>
+    </React.Fragment>
   )
 }
 
-const NavItem = ({ children, slug, setIsOpen }) => {
+const ScrollNavItem = ({ children, slug, setIsOpen }) => {
   return (
     <li>
-      {/* <Link to={slug}>{children}</Link> */}
       <button className={menuItem} onClick={() => {
         if (setIsOpen) {
           setIsOpen(false)
@@ -86,6 +114,14 @@ const NavItem = ({ children, slug, setIsOpen }) => {
         return scrollTo(slug)
       }
       }>{children}</button>
+    </li>
+  )
+}
+
+const LinkNavItem = ({ children, slug }) => {
+  return (
+    <li>
+      <Link className={menuItem} to={slug}>{children}</Link>
     </li>
   )
 }
