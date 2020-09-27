@@ -2,6 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import ProductSlider from '../../components/product_slider/product_slider'
 import DownWave from '../../images/down_wave.svg'
+import CategoryList from '../../components/category_list/category_list'
 
 import { categorySectionStyles } from './category_section.module.scss'
 
@@ -23,18 +24,18 @@ const CategorySection = () => {
                 childImageSharp {
                   fluid {
                     base64
-                tracedSVG
-                aspectRatio
-                src
-                srcSet
-                srcWebp
-                srcSetWebp
-                sizes
-                originalImg
-                originalName
-                presentationWidth
-                presentationHeight
-                __typename
+                  tracedSVG
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                  originalImg
+                  originalName
+                  presentationWidth
+                  presentationHeight
+                  __typename
                   }
                 }
               }
@@ -53,6 +54,8 @@ const CategorySection = () => {
         <h1>Vyberte si svoju kategoriu.</h1>
 
         <div className='container'>
+          <CategoryList />
+
           {categories.map(({ id, type, products }) => (
             <ProductSlider key={id} category={type} products={products} />
           ))}

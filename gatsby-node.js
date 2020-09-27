@@ -22,13 +22,9 @@ exports.onCreateNode = async ({
     let categoryProducts = node.products
 
     if (node.internal.type === "StrapiCategory") {
-        // console.log(categoryProducts)
         if (categoryProducts.length > 0) {
-            // multipleImages.forEach(el => console.log(el))
             categoryProducts.forEach(async (products) => {
                 let categoryMultipleImages = products.images
-
-                // console.log(categoryMultipleImages)
                 const images = await Promise.all(
                     categoryMultipleImages.map(el => {
                         if (process.env.NODE_ENV === 'production') {
@@ -119,6 +115,16 @@ exports.createPages = async ({ graphql, actions }) => {
     }
     `)
 
+    const categoryResult = await graphql(`
+    {
+        allStrapiCategory {
+            nodes {
+            strapiId
+            }
+        }
+    }
+    `)
+
     result.data.allStrapiProduct.nodes.forEach((product) => {
         createPage({
             path: `/produkty/${product.slug}`,
@@ -135,6 +141,16 @@ exports.createPages = async ({ graphql, actions }) => {
             component: path.resolve('src/templates/blog_page/blogPage.jsx'),
             context: {
                 slug: post.slug
+            }
+        })
+    })
+
+    categoryResult.data.allStrapiCategory.nodes.forEach(category => {
+        createPage({
+            path: `/kategorie/${category.strapiId}`,
+            component: path.resolve('src/templates/single_category/singleCategory.jsx'),
+            context: {
+                id: category.strapiId
             }
         })
     })

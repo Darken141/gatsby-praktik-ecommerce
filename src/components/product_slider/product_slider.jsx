@@ -9,7 +9,11 @@ const ProductSlider = ({ products, category }) => {
             <Heading>
                 {category}
             </Heading>
-            <div className={sliderWrapperStyles}>
+            <div className={sliderWrapperStyles}
+                data-sal="slide-up"
+                data-sal-easing="ease-in-out"
+                data-sal-duration="1500"
+            >
                 {products.map(({ id, name, images, price, slug }) => {
                     return (
                         <ProductCard

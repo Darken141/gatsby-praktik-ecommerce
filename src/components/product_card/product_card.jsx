@@ -5,11 +5,7 @@ import Image from 'gatsby-image'
 
 const ProductCard = ({ images, name, price, slug }) => {
     return (
-        <div className={cardStyles}
-            data-sal="slide-up"
-            data-sal-easing="ease-in-out"
-            data-sal-duration="1500"
-        >
+        <div className={cardStyles}>
             <div className={productImageStyles}>
                 <Image fluid={images[0].localFile.childImageSharp.fluid} />
             </div>
