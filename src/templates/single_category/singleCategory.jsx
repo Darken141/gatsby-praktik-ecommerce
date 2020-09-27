@@ -13,7 +13,7 @@ const SingleCategory = ({ data }) => {
             <section className={singleCategoryStyles}>
                 <div className='container'>
                     <div className={productListStyles} >
-                        {data.strapiCategory.products ? (
+                        {data.strapiCategory ? (
                             data.strapiCategory.products.map(({ id, name, price, images, slug }) => {
                                 return (
                                     <ProductCard
@@ -25,7 +25,9 @@ const SingleCategory = ({ data }) => {
                                     />
                                 )
                             })
-                        ) : null
+                        ) : (
+                                <h1>Ziadne produkty</h1>
+                            )
 
                         }
                     </div>
