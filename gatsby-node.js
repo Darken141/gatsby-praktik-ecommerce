@@ -119,8 +119,6 @@ exports.createPages = async ({ graphql, actions }) => {
     `)
 
     categoryResult.data.allStrapiCategory.nodes.forEach(({ strapiId, products }) => {
-        console.log(strapiId)
-        console.log(products)
         createPage({
             path: `/kategorie/${strapiId}`,
             component: path.resolve('src/templates/single_category/singleCategory.jsx'),

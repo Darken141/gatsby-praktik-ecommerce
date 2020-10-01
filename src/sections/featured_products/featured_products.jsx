@@ -6,7 +6,7 @@ import ProductSlider from '../../components/product_slider/product_slider'
 const FeaturedProducts = () => {
   const data = useStaticQuery(graphql`
   {
-    allStrapiProduct(filter: {categories: {elemMatch: {type: {eq: "Novinky"}}}, published: {eq: true}}) {
+    allStrapiProduct(filter: {categories: {elemMatch: {type: {eq: "Novinky"}}}, published: {eq: true}}, limit: 10) {
       nodes {
         images {
           localFile {

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { homePageNavItems, navItems, footerNavItems } from '../../constants/nav_items'
-import scrollTo from 'gatsby-plugin-smoothscroll'
+import { footerNavItems } from '../../constants/nav_items'
 import { Link } from 'gatsby'
 import CustomButton from '../button/button'
 import Wave from '../../images/wave-3.svg'

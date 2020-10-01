@@ -6,7 +6,7 @@ export const navItems = [
     },
     {
         id: 2,
-        name: "Kategorie",
+        name: "Kategórie",
         slug: "/kategorie"
     }
 ]

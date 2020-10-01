@@ -51,7 +51,7 @@ const CategorySection = () => {
   return (
     <React.Fragment>
       <section className={categorySectionStyles}>
-        <h1>Vyberte si svoju kategoriu.</h1>
+        <h1>Vyberte si svoju kategóriu.</h1>
 
         <div className='container'>
           <CategoryList />
