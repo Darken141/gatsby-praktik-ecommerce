@@ -11,6 +11,7 @@ const ContactSection = ({ heading }) => {
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
+    const [gdpr, setGdpr] = useState(false)
 
     return (
         <section id='kontakt' className={contactSectionStyles}>
@@ -58,7 +59,7 @@ const ContactSection = ({ heading }) => {
                             <label htmlFor="message" className={message.length ? "shrink" : ""}>Vaša správa</label>
                         </div>
 
-                        <CustomCheckbox />
+                        <CustomCheckbox grdp={gdpr} setGdpr={setGdpr} id="contect" />
 
                         <CustomButton type="submit">
                             Odoslať správu

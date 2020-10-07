@@ -1,13 +1,17 @@
 import React from 'react'
-import { formInput } from './form_input.module.scss'
+import { inputContainerStyles, inputStyles, labelStyles, shrinkLabelStyles } from './form_input.module.scss'
 
-const CustomInput = ({ ...props }) => {
-    const { type, id, name, handleChange, value, label } = props
-
+const CustomInput = ({ label, handleChange, ...otherProps }) => {
     return (
-        <div className={formInput}>
-            <input type={type} id={id} name={name} value={value} onChange={handleChange} />
-            <label className={value.length ? "shrink" : ""}>{label}</label>
+        <div className={inputContainerStyles}>
+            <input className={inputStyles} onChange={handleChange} {...otherProps} />
+            {label ? (
+                <label
+                    className={otherProps.value.length ? shrinkLabelStyles : labelStyles}
+                >
+                    {label}
+                </label>
+            ) : null}
         </div>
     )
 }

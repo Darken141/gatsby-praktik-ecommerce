@@ -1,23 +1,12 @@
 import React from 'react'
-import { checkboxContainerStyles, cssCheckbox, cssLabel } from './checkbox.module.scss'
+import { checkboxStyles } from './checkbox.module.scss'
 
-const CustomCheckbox = () => {
+const CustomCheckbox = ({ grdp, setGdpr, id }) => {
+
     return (
-        <div className={checkboxContainerStyles}>
-            <input
-                type="checkbox"
-                name="checkboxG1"
-                id="checkboxG1"
-                className={cssCheckbox}
-            />
-
-            <label
-                htmlFor="checkboxG1"
-                className={cssLabel}
-            >
-                Súhlasim so spracovanim osobných údajov.
-            </label>
-
+        <div className={checkboxStyles}>
+            <input type="checkbox" id={id} name="gdrp" checked={grdp} onChange={() => setGdpr(!grdp)} />
+            <label htmlFor="gdrp">Súhlasim so spracovaním osobných údajov</label>
         </div>
     )
 }

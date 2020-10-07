@@ -5,13 +5,40 @@ import Wave from '../../images/wave.svg'
 import CustomButton from '../../components/button/button'
 import CustomInput from '../../components/form_input/form_input'
 import CustomCheckbox from '../../components/checkbox/checkbox'
+import axios from 'axios'
 
 const NewsletterSection = () => {
     const [fName, setFName] = useState('')
     const [lName, setLName] = useState('')
     const [email, setEmail] = useState('')
-    // const [GDPR, setGDPR] = useState(false)
+    const [grdp, setGdpr] = useState(false)
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        if (!grdp) return
+        if (fName === '') return
+        if (lName === '') return
+        if (email === '') return
+
+        axios({
+            method: 'post',
+            headers: { accept: 'application/json', 'content-type': 'application/json', 'api-key': process.env.SENDIN_BLUE_API_KEY },
+            url: 'https://api.sendinblue.com/v3/contacts',
+            data: {
+                email: email,
+                attributes: {
+                    FIRSTNAME: fName,
+                    LASTNAME: lName
+                }
+            }
+        });
+
+        setGdpr(false)
+        setEmail('')
+        setFName('')
+        setLName('')
+    }
 
 
     return (
@@ -22,11 +49,13 @@ const NewsletterSection = () => {
                 <Heading>
                     Buďte informovaný o aktuálnych novinkách v našom obchode
                 </Heading>
-                <div className={formContainer}
+                <form
+                    className={formContainer}
                     data-sal="slide-left"
                     // data-sal-delay={`${idx}000`}
                     data-sal-easing="ease-in-out"
                     data-sal-duration="1500"
+                    onSubmit={handleSubmit}
                 >
                     <h4>Newsletter</h4>
                     <p>Maximálne raz do mesiaca Vám napíšeme, čo nové sme si pre Vás pripravili.</p>
@@ -54,11 +83,11 @@ const NewsletterSection = () => {
                         handleChange={e => setEmail(e.target.value)}
                         label="Váš email"
                     />
-                    <CustomCheckbox />
-                    <CustomButton>
+                    <CustomCheckbox grdp={grdp} setGdpr={setGdpr} id="newsletter" />
+                    <CustomButton type='submit'>
                         Odoberať novinky
                     </CustomButton>
-                </div>
+                </form>
             </div>
 
             <div className={waveWrapper}>

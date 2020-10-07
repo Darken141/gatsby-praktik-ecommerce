@@ -3,12 +3,33 @@ import { footerNavItems } from '../../constants/nav_items'
 import { Link } from 'gatsby'
 import CustomButton from '../button/button'
 import Wave from '../../images/wave-3.svg'
+import axios from 'axios'
 
 import { footer, row, col, sitemapStyles, openingHours, emailStyles, newsletterInputStyles, waveWrapper, wave } from './footer.module.scss'
 
 const Footer = () => {
     const [email, setEmail] = useState('')
-    // const [GDPR, setGDPR] = useState(false)
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        if (email === '') return
+
+        axios({
+            method: 'post',
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json',
+                'api-key': process.env.SENDIN_BLUE_API_KEY
+            },
+            url: 'https://api.sendinblue.com/v3/contacts',
+            data: {
+                email: email,
+            }
+        });
+
+        setGdpr(false)
+        setEmail('')
+    }
 
     return (
         <React.Fragment>
@@ -122,13 +143,13 @@ const Footer = () => {
                         </div>
                         <div className={col}>
                             <h4>Newsletter</h4>
-                            <div className={newsletterInputStyles}>
+                            <form onSubmit={handleSubmit} className={newsletterInputStyles}>
                                 <label htmlFor="footer-email">Váš e-mail:</label>
                                 <input id='footer-email' name='footer-email' type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder='priklad@gmail.com' />
-                                <CustomButton>
+                                <CustomButton type='submit'>
                                     Odoberať novinky
-                        </CustomButton>
-                            </div>
+                                </CustomButton>
+                            </form>
                         </div>
                     </div>
                 </div>
